@@ -10,7 +10,7 @@ app.use(express.json());
 
 let db;
 async function conToDb(cb) {
-    const url = process.env.MONGOO_URL;
+    const url = "mongodb+srv://Pra123veen:Pra123veen@praveen04.higkkwc.mongodb.net/?retryWrites=true&w=majority&appName=Praveen04";
     const client = new MongoClient(url);
     await client.connect();
     db = client.db('praveen');
