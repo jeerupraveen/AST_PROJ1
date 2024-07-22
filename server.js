@@ -116,7 +116,7 @@ app.post('/attendinsert',async(req,res)=>{
     try{
         const details=await db.collection('attendence').findOne({RegisterNumber: req.body.registernumber});
         if(!details)
-            {
+           {
             const indata=await db.collection('attendence').insertOne({
             Name: req.body.name,
             Branch: req.body.branch,
