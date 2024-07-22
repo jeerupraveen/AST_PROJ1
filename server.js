@@ -145,7 +145,7 @@ app.post('/attendinsert',async(req,res)=>{
     }
 })
 conToDb(() => {
-    app.listen(3000, () => {
+    app.listen(PORT, () => {
         console.log("Server running successfully");
     });
 });
