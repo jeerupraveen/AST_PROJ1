@@ -2,6 +2,7 @@ const express = require('express');
 const { MongoClient } = require('mongodb');
 const path = require('path');
 const cors = require('cors');
+require('dotenv').config();
 
 const app = express();
 app.use(cors());
@@ -9,7 +10,7 @@ app.use(express.json());
 
 let db;
 async function conToDb(cb) {
-    const url = "mongodb+srv://Pra123veen:Pra123veen@praveen04.higkkwc.mongodb.net/?retryWrites=true&w=majority&appName=Praveen04";
+    const url = process.env.MONGOO_URL;
     const client = new MongoClient(url);
     await client.connect();
     db = client.db('praveen');
@@ -145,7 +146,7 @@ app.post('/attendinsert',async(req,res)=>{
     }
 })
 conToDb(() => {
-    app.listen(3000, () => {
+    app.listen(process.env.PORT||3000, () => {
         console.log("Server running successfully");
     });
 });
