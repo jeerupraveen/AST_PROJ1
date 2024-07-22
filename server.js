@@ -1,8 +1,7 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
-const path = require('path');
 const cors = require('cors');
-require('dotenv').config();
+const PORT=8000;
 
 const app = express();
 app.use(cors());
@@ -146,7 +145,7 @@ app.post('/attendinsert',async(req,res)=>{
     }
 })
 conToDb(() => {
-    app.listen(process.env.PORT||3000, () => {
+    app.listen(3000, () => {
         console.log("Server running successfully");
     });
 });
